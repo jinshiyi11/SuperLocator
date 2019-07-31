@@ -2,53 +2,35 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        debug {
-            storeFile file('D:\\mycode\\android\\SuperLocator\\key.jks')
-            storePassword 'shanshanlaichi'
-            keyPassword 'shanshanlaichi'
-            keyAlias = 'superLocator'
-        }
         release {
-            storeFile file('D:\\mycode\\android\\SuperLocator\\key.jks')
-            storePassword 'shanshanlaichi'
-            keyPassword 'shanshanlaichi'
+            storeFile file('../key.jks')
+            storePassword System.getenv("SUPER_LOCATOR")
+            keyPassword System.getenv("SUPER_LOCATOR")
             keyAlias = 'superLocator'
         }
     }
-    compileSdkVersion 27
+
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.seagle.superlocator"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//        signingConfigs {
-//            debug{
-//                storeFile file("../key.jks")
-//                storePassword "xxx"
-//                keyAlias "xxx"
-//                keyPassword "xxx"
-//            }
-//            release {
-//                storeFile file("../key.jks")
-//                storePassword "xxx"
-//                keyAlias "xxx"
-//                keyPassword "xxx"
-//            }
-//        }
+
     }
     buildTypes {
-//        debug {
-//            signingConfig signingConfigs.release
-//        }
+        debug {
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
     }
-    buildToolsVersion = '27.0.3'
+    buildToolsVersion = '29.0.1'
 }
 
 //configurations.all {
@@ -65,11 +47,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:27.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 //    implementation 'androidx.appcompat:appcompat:1.0.2'
 //    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation "org.permissionsdispatcher:permissionsdispatcher:4.5.0"
+    annotationProcessor "org.permissionsdispatcher:permissionsdispatcher-processor:4.5.0"
     implementation 'com.amap.api:3dmap:6.9.2'
     implementation 'com.amap.api:location:4.7.0'
 
