@@ -2,7 +2,12 @@ package com.seagle.superlocator;
 
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,12 +18,14 @@ import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.MyLocationStyle;
+import com.seagle.superlocator.util.LocationUtil;
 
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 
 @RuntimePermissions
 public class MainActivity extends AppCompatActivity {
+    private Context mContext;
     private MapView mMapView;
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = null;
@@ -28,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mContext = this;
         mMapView = findViewById(R.id.mv_map);
         mMapView.onCreate(savedInstanceState);
         AMap aMap = mMapView.getMap();
@@ -45,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.READ_PHONE_STATE
     })
     public void requestPermission() {
+        if (!LocationUtil.isLocationEnabled(mContext)) {
+            LocationUtil.openLocationSettins(mContext);
+        }
+
         initLocation();
         startLocation();
     }
