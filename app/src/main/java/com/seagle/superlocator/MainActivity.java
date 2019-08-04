@@ -16,6 +16,8 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdate;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.seagle.superlocator.util.LocationUtil;
@@ -38,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
         mMapView = findViewById(R.id.mv_map);
         mMapView.onCreate(savedInstanceState);
-        AMap aMap = mMapView.getMap();
-//        aMap.setTrafficEnabled(true);// 显示实时交通状况
-//        //地图模式可选类型：MAP_TYPE_NORMAL,MAP_TYPE_SATELLITE,MAP_TYPE_NIGHT
-//        aMap.setMapType(AMap.MAP_TYPE_SATELLITE);// 卫星地图模式
 
         MainActivityPermissionsDispatcher.requestPermissionWithPermissionCheck(this);
     }
@@ -185,5 +183,14 @@ public class MainActivity extends AppCompatActivity {
         aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
         aMap.getUiSettings().setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
         aMap.setMyLocationEnabled(true);// 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
+
+        //显示比例尺控件
+        aMap.getUiSettings().setScaleControlsEnabled(true);
+//        aMap.setTrafficEnabled(true);// 显示实时交通状况
+//        //地图模式可选类型：MAP_TYPE_NORMAL,MAP_TYPE_SATELLITE,MAP_TYPE_NIGHT
+//        aMap.setMapType(AMap.MAP_TYPE_SATELLITE);// 卫星地图模式
+
+        //地图的缩放级别一共分为 17 级，从 3 到 19。数字越大，展示的图面信息越精细
+        aMap.moveCamera(CameraUpdateFactory.zoomTo(16));
     }
 }
