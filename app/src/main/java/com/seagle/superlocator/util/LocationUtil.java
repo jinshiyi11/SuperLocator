@@ -50,4 +50,12 @@ public class LocationUtil {
                 .setNegativeButton(R.string.cancel, null)
                 .show();
     }
+
+    public static boolean isMockSettingsAllowed(Context context) {
+        if (Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ALLOW_MOCK_LOCATION).equals("0"))
+            return false;
+        else
+            return true;
+    }
 }
