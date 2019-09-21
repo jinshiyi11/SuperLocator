@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import io.virtualapp.R;
+import com.seagle.superlocator.R;
 import io.virtualapp.abs.ui.VUiKit;
 import io.virtualapp.home.models.AppInfo;
 import io.virtualapp.widgets.DragSelectRecyclerViewAdapter;

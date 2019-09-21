@@ -1,5 +1,7 @@
 package io.virtualapp.widgets;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -17,10 +19,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
-import io.virtualapp.R;
+import com.seagle.superlocator.R;
 
 @SuppressLint("ClickableViewAccessibility")
 public class RippleButton extends AppCompatButton {
@@ -118,7 +118,7 @@ public class RippleButton extends AppCompatButton {
                 @Override
                 public void onAnimationEnd(Animator animator) {
                     setRadius(0);
-                    ViewHelper.setAlpha(RippleButton.this, 1);
+                    setAlpha(1);
                     mIsAnimating = false;
                 }
 
@@ -178,7 +178,7 @@ public class RippleButton extends AppCompatButton {
                 @Override
                 public void onAnimationEnd(Animator animator) {
                     setRadius(0);
-                    ViewHelper.setAlpha(RippleButton.this, 1);
+                    setAlpha(1);
                     mIsAnimating = false;
                 }
 
@@ -227,7 +227,7 @@ public class RippleButton extends AppCompatButton {
             return;
         }
 
-        canvas.save(Canvas.CLIP_SAVE_FLAG);
+        canvas.save();
 
         mPath.reset();
         mPath.addCircle(mDownX, mDownY, mRadius, Path.Direction.CW);

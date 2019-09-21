@@ -40,10 +40,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-//
-//    packagingOptions {
+
+    packagingOptions {
 //        exclude "**/libAMapSDK_MAP_v6_9_2.so"
-//    }
+        pickFirst "assets/infowindow_bg.9.png"
+    }
 }
 
 //configurations.all {
@@ -66,7 +67,9 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:percent:27.1.1'
 
 //    implementation "org.permissionsdispatcher:permissionsdispatcher:4.5.0"
 //    annotationProcessor "org.permissionsdispatcher:permissionsdispatcher-processor:4.5.0"

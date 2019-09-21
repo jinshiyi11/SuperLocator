@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.virtualapp.R;
+import com.seagle.superlocator.R;
 import io.virtualapp.VApp;
 import io.virtualapp.home.ListAppFragment;
 

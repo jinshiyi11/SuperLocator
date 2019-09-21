@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import io.virtualapp.R;
+import com.seagle.superlocator.R;
 import io.virtualapp.abs.ui.BaseAdapterPlus;
 import io.virtualapp.home.models.LocationData;
 

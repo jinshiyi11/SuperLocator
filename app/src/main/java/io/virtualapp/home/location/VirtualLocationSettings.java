@@ -17,7 +17,7 @@ import com.lody.virtual.remote.vloc.VLocation;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.virtualapp.R;
+import com.seagle.superlocator.R;
 import io.virtualapp.abs.ui.VActivity;
 import io.virtualapp.abs.ui.VUiKit;
 import io.virtualapp.home.adapters.AppLocationAdapter;

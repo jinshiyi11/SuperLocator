@@ -1,4 +1,4 @@
-package com.seagle.superlocator;
+package com.seagle.superlocator.activity;
 
 
 import android.Manifest;
@@ -23,9 +23,11 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
+import com.seagle.superlocator.R;
 import com.seagle.superlocator.util.LocationUtil;
 import com.seagle.superlocator.util.LogUtil;
 
+import io.virtualapp.home.ListAppActivity;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 

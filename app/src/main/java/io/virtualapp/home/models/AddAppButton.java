@@ -3,7 +3,7 @@ package io.virtualapp.home.models;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import io.virtualapp.R;
+import com.seagle.superlocator.R;
 
 /**
  * @author Lody

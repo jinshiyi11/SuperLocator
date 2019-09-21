@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.virtualapp.R;
+import com.seagle.superlocator.R;
 
 /**
  * This class acts as an adapter for the {@link CardStackLayout} view. This
