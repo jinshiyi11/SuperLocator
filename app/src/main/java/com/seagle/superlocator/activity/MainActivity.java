@@ -3,6 +3,7 @@ package com.seagle.superlocator.activity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
@@ -27,6 +28,7 @@ import com.seagle.superlocator.R;
 import com.seagle.superlocator.util.LocationUtil;
 import com.seagle.superlocator.util.LogUtil;
 
+import io.virtualapp.home.HomeActivity;
 import io.virtualapp.home.ListAppActivity;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
@@ -249,7 +251,8 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMapClickLi
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.btn_start_mock) {
-            ListAppActivity.gotoListApp(this);
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
         }
     }
 }

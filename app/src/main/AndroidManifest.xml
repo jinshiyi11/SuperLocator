@@ -60,35 +60,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.HomeActivity"
+            android:name="io.virtualapp.home.HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/UITheme"/>
 
         <activity
-            android:name=".home.ListAppActivity"
+            android:name="io.virtualapp.home.ListAppActivity"
             android:screenOrientation="portrait"
             android:theme="@style/UITheme"/>
 
         <activity
-            android:name=".home.LoadingActivity"
+            android:name="io.virtualapp.home.LoadingActivity"
             android:excludeFromRecents="true"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:taskAffinity="va.task.loading"
             android:theme="@style/TransparentTheme"/>
         <activity
-            android:name=".home.location.VirtualLocationSettings"
+            android:name="io.virtualapp.home.location.VirtualLocationSettings"
             android:screenOrientation="portrait"
             android:theme="@style/UITheme"
             />
 
         <activity
-            android:name=".home.location.MarkerActivity"
+            android:name="io.virtualapp.home.location.MarkerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/UITheme"
             />
     </application>
-
-
-
 </manifest>
