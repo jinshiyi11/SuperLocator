@@ -37,7 +37,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 
     <application
-        android:name="com.seagle.superlocator.MyApplication"
+        android:name="io.virtualapp.VApp"
         android:testOnly="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -59,6 +59,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme"/>
+
+        <activity
+            android:name=".home.ListAppActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme"/>
+
+        <activity
+            android:name=".home.LoadingActivity"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="va.task.loading"
+            android:theme="@style/TransparentTheme"/>
+        <activity
+            android:name=".home.location.VirtualLocationSettings"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme"
+            />
+
+        <activity
+            android:name=".home.location.MarkerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme"
+            />
     </application>
 
 
