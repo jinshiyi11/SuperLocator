@@ -7,9 +7,10 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.system.Os;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -29,10 +30,11 @@ import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 
 @RuntimePermissions
-public class MainActivity extends AppCompatActivity implements AMap.OnMapClickListener {
+public class MainActivity extends AppCompatActivity implements AMap.OnMapClickListener, View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private Context mContext;
     private MapView mMapView;
+    private Button mBtnMock;
     private AMapLocationClient locationClient;
     private AMapLocationClientOption locationOption;
     /**
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMapClickLi
         mContext = this;
         mMapView = findViewById(R.id.mv_map);
         mMapView.onCreate(savedInstanceState);
+        mBtnMock = findViewById(R.id.btn_start_mock);
+        mBtnMock.setOnClickListener(this);
 
         MainActivityPermissionsDispatcher.requestPermissionWithPermissionCheck(this);
     }
@@ -236,6 +240,14 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMapClickLi
             locationManager.setTestProviderLocation(LocationManager.GPS_PROVIDER, mockLocation);
         } catch (Exception e) {
             LogUtil.e(TAG, e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.btn_start_mock) {
+            ListAppActivity.gotoListApp(this);
         }
     }
 }
